@@ -1,0 +1,10 @@
+{
+  "name": "GBA devkitPro",
+  "build": {
+    "dockerfile": "../docker/devkitpro/Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspaces/gba_games",
+  "settings": {},
+  "extensions": []
+}
