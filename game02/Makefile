@@ -1,9 +1,12 @@
 DEVKITPRO ?= /opt/devkitpro
 PREFIX := arm-none-eabi-
-CC := $(PREFIX)gcc
-OBJCOPY := $(PREFIX)objcopy
+# Use devkitPro-provided toolchain to ensure correct startup files/libs are used
+CC := /opt/devkitpro/devkitARM/bin/arm-none-eabi-gcc
+OBJCOPY := /opt/devkitpro/devkitARM/bin/arm-none-eabi-objcopy
 CFLAGS := -Wall -mthumb -mthumb-interwork -O2 -fomit-frame-pointer
-LDFLAGS := -T$(DEVKITPRO)/libgba/template.ld
+# Add devkitPro include paths so libgba headers are found
+CFLAGS += -I$(DEVKITPRO)/libgba/include -I$(DEVKITPRO)/devkitarm/arm-none-eabi/include
+LDFLAGS := -L$(DEVKITPRO)/libgba/lib -L$(DEVKITPRO)/devkitARM/arm-none-eabi/lib -T$(DEVKITPRO)/devkitARM/arm-none-eabi/lib/gba_cart.ld
 LIBS := -lgba -lm
 
 TARGET := game02

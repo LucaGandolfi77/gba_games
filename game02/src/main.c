@@ -2,6 +2,7 @@
 #include <gba_video.h>
 #include <gba_interrupt.h>
 #include <gba_input.h>
+#include <gba_systemcalls.h>
 #include <stdio.h>
 
 int main(void)
